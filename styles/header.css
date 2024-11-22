@@ -1,0 +1,68 @@
+.site-header {
+    background-color: #002147; /* Oxford Blue */
+    padding: 2rem;
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.brand .name {
+    font-family: "ABC Diatype Edu Medium", sans-serif;
+    font-size: 2rem;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.brand .title {
+    font-family: "ABC Diatype Edu Regular", sans-serif;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    font-family: "ABC Diatype Edu Regular", sans-serif;
+    color: var(--token-5ac7006b-fd58-430a-9d4f-10fca3db284d);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.nav-links a:hover {
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-nav {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}

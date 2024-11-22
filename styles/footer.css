@@ -1,0 +1,63 @@
+/* Footer Base Styles */
+.footer-container {
+    background-color: #002147; /* Oxford Blue */
+    width: 100%;
+    padding: 40px 60px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Institution Headers */
+.institution-header {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: "ABC Diatype Edu Regular", sans-serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Links List */
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "ABC Diatype Edu Regular", sans-serif;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 20px;
+    margin-top: auto;
+    padding-top: 40px;
+}
+
+.copyright {
+    grid-column: 1 / -1;
+    color: rgb(243, 246, 247);
+    font-family: "ABC Diatype Edu Regular", sans-serif;
+    padding-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        padding: 30px 20px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}

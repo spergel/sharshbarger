@@ -1,0 +1,51 @@
+/* Research Page Specific Styles */
+.page-title {
+    font-family: "ABC Diatype Edu Medium", sans-serif;
+    font-size: 3rem;
+    color: #002147;
+    margin-bottom: 2rem;
+}
+
+.research-overview,
+.research-areas,
+.current-project {
+    margin-bottom: 3rem;
+}
+
+.research-overview h2,
+.research-areas h2,
+.current-project h2 {
+    font-family: "ABC Diatype Edu Medium", sans-serif;
+    font-size: 2rem;
+    color: #002147;
+    margin-bottom: 1rem;
+}
+
+.research-overview p,
+.current-project p {
+    font-family: "ABC Diatype Edu Regular", sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #002147;
+}
+
+.research-areas ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.research-areas li {
+    font-family: "ABC Diatype Edu Regular", sans-serif;
+    font-size: 1.2rem;
+    color: #002147;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.research-areas li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #002147;
+} 
