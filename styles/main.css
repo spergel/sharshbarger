@@ -16,6 +16,7 @@
 .left-column {
     position: sticky;
     top: 8rem;
+    overflow-y: auto;
 }
 
 /* Profile Section */
@@ -26,6 +27,7 @@
     align-items: left;
     max-width: 280px;
     margin: 0 auto;
+    padding-bottom: 2rem;
 }
 
 .profile-image {

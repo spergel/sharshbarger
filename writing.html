@@ -26,32 +26,55 @@
             <!-- Right Column: Writing Content -->
             <div class="right-column">
                 <h1 class="page-title">Writing</h1>
-                
-                <section class="writing-section">
-                    <h2>Essays</h2>
-                    <div class="writing-list">
-                        <a href="#" class="writing-item">
-                            <span class="title">Into the Disaster-Verse</span>
-                            <span class="publication">SOUTH ASIAN AVANT-GARDE</span>
-                        </a>
-                        <a href="#" class="writing-item">
-                            <span class="title">The Alternate India</span>
-                            <span class="publication">THE NATION</span>
-                        </a>
-                        <!-- Add more essays as needed -->
-                    </div>
-                </section>
+                    <section class="writing-section">
+                        <h2>Associated Press</h2>
+                        <div class="writing-list">
+                            <a href="https://apnews.com/article/clare-hammond-author-qa-myanmar-railways-4c18a0a2352a5337b99232b7bff9e9ea" class="writing-item">
+                                <span class="title">Q&A: Author Clare Hammond reveals how railways made and broke Myanmar</span>
+                                <span class="publication">ASSOCIATED PRESS</span>
+                            </a>
+                            <a href="https://apnews.com/article/myanmar-school-attacks-increase-report-education-948442a05e07be006a4e79461f3551b6" class="writing-item">
+                                <span class="title">School attacks rise in Myanmar, with children as targets</span>
+                                <span class="publication">ASSOCIATED PRESS</span>
+                            </a>
+                            <a href="https://apnews.com/article/thailand-cannabis-outlaw-protest-4e83a54adac4c4556db354f6b591d178" class="writing-item">
+                                <span class="title">Thailand's plan to restrict cannabis sales sparks last-minute protest</span>
+                                <span class="publication">ASSOCIATED PRESS</span>
+                            </a>
+                        </div>
+                    </section>
 
-                <section class="writing-section">
-                    <h2>Reviews</h2>
-                    <div class="writing-list">
-                        <a href="#" class="writing-item">
-                            <span class="title">On Nature Writing in a Filthy World</span>
-                            <span class="publication">THE MILLIONS</span>
-                        </a>
-                        <!-- Add more reviews as needed -->
-                    </div>
-                </section>
+                    <section class="writing-section">
+                        <h2>New Lines Institute</h2>
+                        <div class="writing-list">
+                            <a href="https://newlinesinstitute.org/state-resilience-fragility/challenges-after-russian-withdrawals-in-ukraine/" class="writing-item">
+                                <span class="title">Challenges After Russian Withdrawals in Ukraine</span>
+                                <span class="publication">NEW LINES INSTITUTE</span>
+                            </a>
+                            <a href="https://newlinesinstitute.org/strategic-competition/the-potential-for-a-u-s-uzbekistan-partnership/" class="writing-item">
+                                <span class="title">The Potential for a U.S.-Uzbekistan Partnership</span>
+                                <span class="publication">NEW LINES INSTITUTE</span>
+                            </a>
+                        </div>
+                    </section>
+
+                    <section class="writing-section">
+                        <h2>Other Publications</h2>
+                        <div class="writing-list">
+                            <a href="https://kulturkampftr.substack.com/p/azerbaijans-wannabe-erdogan" class="writing-item">
+                                <span class="title">Azerbaijan's Wannabe Erdogan</span>
+                                <span class="publication">KULTURKAMPF</span>
+                            </a>
+                            <a href="https://bakuresearchinstitute.org/en/between-israel-and-palestine-the-evolution-of-expressions-of-azerbaijani-palestinian-solidarity/" class="writing-item">
+                                <span class="title">Between Israel and Palestine: The Evolution of Expressions of Azerbaijani-Palestinian Solidarity</span>
+                                <span class="publication">BAKU RESEARCH INSTITUTE</span>
+                            </a>
+                            <a href="https://www.dailyprincetonian.com/article/2022/10/princeton-georgia-ukraine-war-care-support-vulnerability" class="writing-item">
+                                <span class="title">From Princeton to Georgia: How the Ukraine War Changed Everything</span>
+                                <span class="publication">THE DAILY PRINCETONIAN</span>
+                            </a>
+                        </div>
+                    </section>
             </div>
         </div>
     </main>
@@ -61,5 +84,13 @@
     <!-- Scripts -->
     <script src="scripts/main.js"></script>
     <script src="scripts/footer.js"></script>
+    <script src="scripts/header.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadHeader();
+            loadFooter();
+            loadComponent('reduced-profile-container', 'components/ReducedProfile.html');
+        });
+    </script>
 </body>
 </html> 

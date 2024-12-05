@@ -64,9 +64,11 @@
     <!-- Scripts -->
     <script src="scripts/main.js"></script>
     <script src="scripts/footer.js"></script>
+    <script src="scripts/header.js"></script>
     <script>
-        // Load the reduced profile component
         document.addEventListener('DOMContentLoaded', () => {
+            loadHeader();
+            loadFooter();
             loadComponent('reduced-profile-container', 'components/ReducedProfile.html');
         });
     </script>

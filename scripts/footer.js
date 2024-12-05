@@ -1,3 +1,14 @@
+function loadFooter() {
+    fetch('components/Footer.html')
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('footer-container').innerHTML = html;
+        })
+        .catch(error => {
+            console.error('Error loading footer:', error);
+        });
+}
+
 // Add any interactive functionality here
 document.addEventListener('DOMContentLoaded', () => {
     // Example: Add smooth scrolling to footer links
