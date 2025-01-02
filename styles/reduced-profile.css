@@ -28,5 +28,12 @@
 .reduced-social {
     display: flex;
     gap: 1rem;
-    margin-top: 0.5rem;
+}
+
+.social-icon-img {
+    margin-top: -0.5rem;
+    width: 1em;  /* Match font-awesome icon size */
+    height: 1em;
+    vertical-align: middle;
+    filter: invert(14%) sepia(36%) saturate(1407%) hue-rotate(186deg) brightness(97%) contrast(102%);
 } 
