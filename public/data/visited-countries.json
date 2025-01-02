@@ -1,0 +1,325 @@
+{
+  "visited": [
+    {
+      "country": "United States",
+      "code": "USA",
+      "regions": [
+        "Vermont",
+        "New York",
+        "Connecticut",
+        "Rhode Island",
+        "Massachusetts",
+        "New Jersey",
+        "Delaware",
+        "Pennsylvania",
+        "Ohio",
+        "Indiana",
+        "Michigan",
+        "Illinois",
+        "Montana",
+        "South Dakota",
+        "Wyoming",
+        "Washington",
+        "Oregon",
+        "California",
+        "Arizona",
+        "Alabama",
+        "Tennessee",
+        "North Carolina",
+        "Virginia",
+        "Maryland",
+        "District of Columbia",
+        "South Carolina",
+        "Florida",
+        "Georgia",
+        "Arkansas",
+        "Alaska"
+      ]
+    },
+    {
+      "country": "Turkey",
+      "code": "TUR",
+      "regions": ["Antalya", "Ankara", "Amasya", "Istanbul", "Diyarbakır", "Gaziantep"]
+    },
+    {
+      "country": "Canada",
+      "code": "CAN"
+    },
+    {
+      "country": "Mexico",
+      "code": "MEX"
+    },
+    {
+      "country": "Belize",
+      "code": "BLZ"
+    },
+    {
+      "country": "Honduras",
+      "code": "HND"
+    },
+    {
+      "country": "Nicaragua",
+      "code": "NIC"
+    },
+    {
+      "country": "El Salvador",
+      "code": "SLV"
+    },
+    {
+      "country": "Cuba",
+      "code": "CUB"
+    },
+    {
+      "country": "Guatemala",
+      "code": "GTM"
+    },
+    {
+      "country": "Costa Rica",
+      "code": "CRI"
+    },
+    {
+      "country": "Panama",
+      "code": "PAN"
+    },
+    {
+      "country": "Peru",
+      "code": "PER"
+    },
+    {
+      "country": "Brazil",
+      "code": "BRA"
+    },
+    {
+      "country": "Bolivia",
+      "code": "BOL"
+    },
+    {
+      "country": "Paraguay",
+      "code": "PRY"
+    },
+    {
+      "country": "Uruguay",
+      "code": "URY"
+    },
+    {
+      "country": "Argentina",
+      "code": "ARG"
+    },
+    {
+      "country": "Chile",
+      "code": "CHL"
+    },
+    {
+      "country": "Spain",
+      "code": "ESP"
+    },
+    {
+      "country": "Morocco",
+      "code": "MAR"
+    },
+    {
+      "country": "United Kingdom",
+      "code": "GBR"
+    },
+    {
+      "country": "Ireland",
+      "code": "IRL"
+    },
+    {
+      "country": "France",
+      "code": "FRA"
+    },
+    {
+      "country": "Portugal",
+      "code": "PRT"
+    },
+    {
+      "country": "Switzerland",
+      "code": "CHE"
+    },
+    {
+      "country": "Belgium",
+      "code": "BEL"
+    },
+    {
+      "country": "Netherlands",
+      "code": "NLD"
+    },
+    {
+      "country": "Germany",
+      "code": "DEU"
+    },
+    {
+      "country": "Denmark",
+      "code": "DNK"
+    },
+    {
+      "country": "Sweden",
+      "code": "SWE"
+    },
+    {
+      "country": "Norway",
+      "code": "NOR"
+    },
+    {
+      "country": "Finland",
+      "code": "FIN"
+    },
+    {
+      "country": "Russia",
+      "code": "RUS"
+    },
+    {
+      "country": "Estonia",
+      "code": "EST"
+    },
+    {
+      "country": "Latvia",
+      "code": "LVA"
+    },
+    {
+      "country": "Lithuania",
+      "code": "LTU"
+    },
+    {
+      "country": "Poland",
+      "code": "POL"
+    },
+    {
+      "country": "Czechia",
+      "code": "CZE"
+    },
+    {
+      "country": "Slovakia",
+      "code": "SVK"
+    },
+    {
+      "country": "Austria",
+      "code": "AUT"
+    },
+    {
+      "country": "Hungary",
+      "code": "HUN"
+    },
+    {
+      "country": "Slovenia",
+      "code": "SVN"
+    },
+    {
+      "country": "Croatia",
+      "code": "HRV"
+    },
+    {
+      "country": "Bosnia and Herzegovina",
+      "code": "BIH"
+    },
+    {
+      "country": "Serbia",
+      "code": "SRB"
+    },
+    {
+      "country": "Bulgaria",
+      "code": "BGR"
+    },
+    {
+      "country": "North Macedonia",
+      "code": "MKD"
+    },
+    {
+      "country": "Kosovo",
+      "code": "XKX"
+    },
+    {
+      "country": "Vatican City",
+      "code": "VAT"
+    },
+    {
+      "country": "Montenegro",
+      "code": "MNE"
+    },
+    {
+      "country": "Albania",
+      "code": "ALB"
+    },
+    {
+      "country": "Greece",
+      "code": "GRC"
+    },
+    {
+      "country": "Georgia",
+      "code": "GEO"
+    },
+    {
+      "country": "Armenia",
+      "code": "ARM"
+    },
+    {
+      "country": "Azerbaijan",
+      "code": "AZE"
+    },
+    {
+      "country": "Iraq",
+      "code": "IRQ"
+    },
+    {
+      "country": "Lebanon",
+      "code": "LBN"
+    },
+    {
+      "country": "Jordan",
+      "code": "JOR"
+    },
+    {
+      "country": "Saudi Arabia",
+      "code": "SAU"
+    },
+    {
+      "country": "United Arab Emirates",
+      "code": "ARE"
+    },
+    {
+      "country": "Egypt",
+      "code": "EGY"
+    },
+    {
+      "country": "Kazakhstan",
+      "code": "KAZ"
+    },
+    {
+      "country": "Tajikistan",
+      "code": "TJK"
+    },
+    {
+      "country": "Kyrgyzstan",
+      "code": "KGZ"
+    },
+    {
+      "country": "Uzbekistan",
+      "code": "UZB"
+    },
+    {
+      "country": "Laos",
+      "code": "LAO"
+    },
+    {
+      "country": "Vietnam",
+      "code": "VNM"
+    },
+    {
+      "country": "Thailand",
+      "code": "THA"
+    },
+    {
+      "country": "Cambodia",
+      "code": "KHM"
+    },
+    {
+      "country": "Singapore",
+      "code": "SGP"
+    },
+    {
+      "country": "Japan",
+      "code": "JPN"
+    }
+  ]
+} 
