@@ -153,3 +153,22 @@
         justify-content: center;
     }
 } 
+
+.full-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.full-profile .profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Ensure the reduced profile part aligns well within the full profile */
+.full-profile .reduced-profile {
+    width: 100%;
+} 

@@ -9,12 +9,29 @@ async function loadComponent(elementId, componentPath) {
     }
 }
 
+function loadReducedProfile() {
+    console.log('Loading ReducedProfile...');
+    fetch('components/ReducedProfile.html')
+        .then(response => response.text())
+        .then(html => {
+            const container = document.getElementById('reduced-profile-container');
+            if (!container) {
+                throw new Error('reduced-profile-container not found');
+            }
+            container.innerHTML = html;
+            console.log('ReducedProfile loaded successfully');
+        })
+        .catch(error => {
+            console.error('Error loading ReducedProfile:', error);
+        });
+}
+
 // When the document is ready
 document.addEventListener('DOMContentLoaded', () => {
-    // Load header and footer
-    loadComponent('header-container', 'components/Header.html');
-    loadComponent('footer-container', 'components/Footer.html');
-
+    console.log('DOM Content Loaded');
+    loadHeader();
+    loadFooter();
+    loadReducedProfile();
     // Mobile menu toggle
     document.addEventListener('click', (e) => {
         if (e.target.classList.contains('mobile-menu-button')) {
