@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     loadHeader();
-    loadFooter();
     initMap();
 });
 

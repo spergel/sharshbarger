@@ -30,7 +30,6 @@ function loadReducedProfile() {
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM Content Loaded');
     loadHeader();
-    loadFooter();
     loadReducedProfile();
     // Mobile menu toggle
     document.addEventListener('click', (e) => {

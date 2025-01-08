@@ -39,7 +39,7 @@
     {
       "country": "Turkey",
       "code": "TUR",
-      "regions": ["Antalya", "Ankara", "Amasya", "Istanbul", "Diyarbakır", "Gaziantep"]
+      "regions": ["Antalya", "Ankara", "Amasya", "Istanbul", "Diyarbakir", "Gaziantep"]
     },
     {
       "country": "Canada",
@@ -320,6 +320,10 @@
     {
       "country": "Japan",
       "code": "JPN"
+    },
+    {
+      "country": "Italy",
+      "code": "ITA"
     }
   ]
 } 
