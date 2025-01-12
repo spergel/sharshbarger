@@ -30,8 +30,8 @@ async function initMap() {
         // Load all necessary data
         const [visitedResponse, worldResponse, disputedResponse, usStatesResponse, turkeyProvincesResponse] = await Promise.all([
             fetch('/public/data/visited-countries.json'),
-            fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson'),
-            fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_breakaway_disputed_areas.geojson'),
+            fetch('/public/data/ne_50m_admin_0_sovereignty.geojson'),
+            fetch('/public/data/ne_50m_admin_0_breakaway_disputed_areas.geojson'),
             fetch('https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json'),
             fetch('/public/data/lvl1-TR.json')
         ]);
@@ -57,7 +57,7 @@ async function initMap() {
         // Add world countries layer first
         L.geoJSON(worldData, {
             style: function(feature) {
-                const isVisited = visitedCountryCodes.has(feature.properties.ISO_A3);
+                const isVisited = visitedCountryCodes.has(feature.properties.SOV_A3);
                 return {
                     fillColor: isVisited ? '#90EE90' : '#ffffff',
                     weight: 1,
@@ -67,24 +67,31 @@ async function initMap() {
                 };
             },
             onEachFeature: function(feature, layer) {
-                // For debugging
-                console.log(`Country: ${feature.properties.ADMIN}, ISO: ${feature.properties.ISO_A3}`);
-                layer.bindPopup(feature.properties.ADMIN);
+                // Only add popup if country has been visited
+                if (visitedCountryCodes.has(feature.properties.SOV_A3)) {
+                    layer.bindPopup(feature.properties.ADMIN);
+                }
             }
         }).addTo(map);
 
         // Add disputed areas layer on top
         L.geoJSON(disputedData, {
             filter: function(feature) {
-                // Only show Western Sahara from disputed areas
-                return feature.properties.BRK_NAME === "W. Sahara";
+                // Exclude territories claimed by Georgia and specific breakaway regions
+                if (feature.properties.SOVEREIGNT === "Georgia" || 
+                    feature.properties.BRK_A3 === "C02" || 
+                    feature.properties.BRK_A3 === "C03" ||
+                    feature.properties.BRK_A3 === "B38") {
+                    return false;
+                }
+                return true;  // Show all other disputed territories
             },
             style: {
-                fillColor: '#E9E9E9',  // white like other unvisited territories
+                fillColor: '#E9E9E9',
                 weight: 1,
                 opacity: 1,
                 color: '#666',
-                fillOpacity: 1    // same opacity as other unvisited territories
+                fillOpacity: 1
             }
         }).addTo(map);
 

@@ -2,7 +2,7 @@
   "visited": [
     {
       "country": "United States",
-      "code": "USA",
+      "code": "US1",
       "regions": [
         "Vermont",
         "New York",
@@ -119,7 +119,7 @@
     },
     {
       "country": "United Kingdom",
-      "code": "GBR"
+      "code": "GB1"
     },
     {
       "country": "Ireland",
@@ -127,7 +127,7 @@
     },
     {
       "country": "France",
-      "code": "-99"
+      "code": "FR1"
     },
     {
       "country": "Portugal",
@@ -143,7 +143,7 @@
     },
     {
       "country": "Netherlands",
-      "code": "NLD"
+      "code": "NL1"
     },
     {
       "country": "Germany",
@@ -227,7 +227,7 @@
     },
     {
       "country": "Kosovo",
-      "code": "XKX"
+      "code": "KOS"
     },
     {
       "country": "Vatican City",
@@ -283,7 +283,7 @@
     },
     {
       "country": "Kazakhstan",
-      "code": "KAZ"
+      "code": "KA1"
     },
     {
       "country": "Tajikistan",
