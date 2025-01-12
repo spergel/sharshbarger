@@ -28,12 +28,13 @@ async function initMap() {
 
     try {
         // Load all necessary data
-        const [visitedResponse, worldResponse, disputedResponse, usStatesResponse, turkeyProvincesResponse] = await Promise.all([
+        const [visitedResponse, worldResponse, disputedResponse, usStatesResponse, turkeyProvincesResponse, palestineResponse] = await Promise.all([
             fetch('/public/data/visited-countries.json'),
             fetch('/public/data/ne_50m_admin_0_sovereignty.geojson'),
             fetch('/public/data/ne_50m_admin_0_breakaway_disputed_areas.geojson'),
             fetch('https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json'),
-            fetch('/public/data/lvl1-TR.json')
+            fetch('/public/data/lvl1-TR.json'),
+            fetch('/public/data/palestine.geo.json')
         ]);
 
         const visitedData = await visitedResponse.json();
@@ -41,6 +42,7 @@ async function initMap() {
         const disputedData = await disputedResponse.json();
         const usStatesData = await usStatesResponse.json();
         const turkeyProvincesData = await turkeyProvincesResponse.json();
+        const palestineData = await palestineResponse.json();
         
         // Update statistics
         document.getElementById('countries-count').textContent = visitedData.visited.length;
@@ -128,6 +130,17 @@ async function initMap() {
             onEachFeature: function(feature, layer) {
                 const name = feature.properties?.Name;
                 layer.bindPopup(`${name}, Turkey`);
+            }
+        }).addTo(map);
+
+        // Add Palestine layer
+        L.geoJSON(palestineData, {
+            style: {
+                fillColor: '#ffffff',
+                weight: 1,
+                opacity: 1,
+                color: '#666',
+                fillOpacity: 0.1
             }
         }).addTo(map);
 
