@@ -50,7 +50,7 @@ async function initMap() {
         // Create lookup sets
         const visitedCountryCodes = new Set(visitedData.visited.map(c => c.code));
         const visitedUSStates = new Set(
-            visitedData.visited.find(c => c.code === "USA")?.regions || []
+            visitedData.visited.find(c => c.code === "US1" || c.code === "USA")?.regions || []
         );
         const visitedTurkeyProvinces = new Set(
             visitedData.visited.find(c => c.code === "TUR")?.regions || []
@@ -59,7 +59,8 @@ async function initMap() {
         // Add world countries layer first
         L.geoJSON(worldData, {
             style: function(feature) {
-                const isVisited = visitedCountryCodes.has(feature.properties.SOV_A3);
+                const isVisited = visitedCountryCodes.has(feature.properties.SOV_A3) || 
+                                 (feature.properties.SOV_A3 === "US1" && visitedCountryCodes.has("USA"));
                 return {
                     fillColor: isVisited ? '#90EE90' : '#ffffff',
                     weight: 1,
