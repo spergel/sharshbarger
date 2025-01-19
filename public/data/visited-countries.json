@@ -46,8 +46,26 @@
       "code": "CAN"
     },
     {
+      "country": "Cuba",
+      "code": "CU1"
+    },
+    {
+      "country": "Denmark",
+      "code": "DN1"
+    },
+    {
+      "country": "Finland",
+      "code": "FI1"
+    },
+    {
       "country": "Mexico",
-      "code": "MEX"
+      "code": "MEX",
+      "regions": [
+        "Ciudad de México",
+        "Quintana Roo",
+        "Yucatán",
+        "México"
+      ]
     },
     {
       "country": "Belize",
@@ -59,7 +77,13 @@
     },
     {
       "country": "Nicaragua",
-      "code": "NIC"
+      "code": "NIC",
+      "regions": [
+        "Granada",
+        "Managua",
+        "Masaya",
+        "Rivas"
+      ]
     },
     {
       "country": "El Salvador",
@@ -79,11 +103,22 @@
     },
     {
       "country": "Panama",
-      "code": "PAN"
+      "code": "PAN",
+      "regions": [
+        "Bocas del Toro",
+        "Chiriquí",
+        "Kuna Yala",
+        "Ngöbe Buglé",
+        "Panamá"
+      ]
     },
     {
       "country": "Peru",
-      "code": "PER"
+      "code": "PER",
+      "regions": [
+        "Cusco",
+        "Lima"
+      ]
     },
     {
       "country": "Brazil",
@@ -111,7 +146,14 @@
     },
     {
       "country": "Spain",
-      "code": "ESP"
+      "code": "ESP",
+      "regions": [
+        "ESCT",
+        "ESAN",
+        "ESVC",
+        "ESMC",
+        "ESCN"
+      ]
     },
     {
       "country": "Morocco",
@@ -167,7 +209,14 @@
     },
     {
       "country": "Russia",
-      "code": "RUS"
+      "code": "RUS",
+      "regions": [
+        "Leningrad oblast",
+        "Moscow",
+        "Moscow Oblast",
+        "Saint Petersburg",
+        "Udmurtia"
+      ]
     },
     {
       "country": "Estonia",
@@ -303,11 +352,25 @@
     },
     {
       "country": "Vietnam",
-      "code": "VNM"
+      "code": "VNM",
+      "regions": [
+        "Đà Nẵng",
+        "Hà Giang",
+        "Hà Nội",
+        "Ho Chi Minh",
+        "Thừa Thiên-Huế",
+        "Quảng Nam"
+      ]
     },
     {
       "country": "Thailand",
-      "code": "THA"
+      "code": "THA",
+      "regions": [
+        "Bangkok",
+        "Chiang Mai Province",
+        "Kanchanaburi Province",
+        "Phuket Province"
+      ]
     },
     {
       "country": "Cambodia",
