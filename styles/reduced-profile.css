@@ -10,6 +10,23 @@
     padding: 1rem;
 }
 
+/* Add media query for small screens */
+@media (max-width: 968px) {
+    .reduced-profile-container {
+        align-items: center;  /* Centers the content horizontally */
+        text-align: center;   /* Centers the text */
+    }
+
+    .reduced-profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;  /* Centers the profile content */
+    }
+
+    .reduced-social {
+        justify-content: center;  /* Centers the social icons */
+    }
+}
 
 .reduced-profile-info h2 {
     font-family: "ABC Diatype Edu Medium", sans-serif;
