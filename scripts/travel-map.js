@@ -399,15 +399,15 @@ async function initMap() {
             div.innerHTML = `
                 <div class="legend-item">
                     <span class="legend-color" style="background: #4CAF50;"></span>
-                    Visited Region
+                    Visited region
                 </div>
                 <div class="legend-item">
                     <span class="legend-color" style="background: #90EE90;"></span>
-                    Visited Country
+                    Visited country
                 </div>
                 <div class="legend-item">
                     <span class="legend-color" style="background: #ffffff; border: 1px solid #666;"></span>
-                    Not Yet Visited
+                    Not yet visited
                 </div>
             `;
             return div;
