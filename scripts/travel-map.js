@@ -35,7 +35,7 @@ async function initMap() {
         const [visitedResponse, worldResponse, disputedResponse, usStatesResponse, 
                turkeyProvincesResponse, thailandProvincesResponse, vietnamProvincesResponse, 
                palestineResponse, russiaResponse, mexicoResponse, panamaResponse,
-               nicaraguaResponse, peruResponse, spainResponse] = await Promise.all([
+               nicaraguaResponse, peruResponse, spainResponse, germanyResponse] = await Promise.all([
             fetch('/public/data/visited-countries.json'),
             fetch('/public/data/map.geojson'),
             fetch('/public/data/map2.geojson'),
@@ -49,7 +49,8 @@ async function initMap() {
             fetch('/public/data/panama.json'),
             fetch('/public/data/nicaragua.geojson'),
             fetch('/public/data/peru.geojson'),
-            fetch('/public/data/spain.json')
+            fetch('/public/data/spain.json'),
+            fetch('/public/data/germany.json')
         ]);
 
         const visitedData = await visitedResponse.json();
@@ -66,6 +67,7 @@ async function initMap() {
         const nicaraguaData = await nicaraguaResponse.json();
         const peruData = await peruResponse.json();
         const spainData = await spainResponse.json();
+        const germanyData = await germanyResponse.json();
         
         // Update statistics
         document.getElementById('countries-count').textContent = visitedData.visited.length;
@@ -113,6 +115,12 @@ async function initMap() {
         const visitedSpainProvinces = new Set(
             visitedData.visited
                 .find(country => country.code === 'ESP')
+                ?.regions || []
+        );
+
+        const visitedGermanyProvinces = new Set(
+            visitedData.visited
+                .find(country => country.code === 'DEU')
                 ?.regions || []
         );
 
@@ -389,6 +397,25 @@ async function initMap() {
             onEachFeature: function(feature, layer) {
                 const name = feature.properties?.shapeName;
                 layer.bindPopup(`${name}, Nicaragua`);
+            }
+        }).addTo(map);
+
+        // Add Germany Provinces layer
+        L.geoJSON(germanyData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name_1;
+                const isVisited = visitedGermanyProvinces.has(provinceName);
+                
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name_1;
+                layer.bindPopup(`${name}, Germany`);
             }
         }).addTo(map);
 

@@ -190,7 +190,11 @@
     },
     {
       "country": "Germany",
-      "code": "DEU"
+      "code": "DEU",
+      "regions": [
+        "Bayern",
+        "Berlin"
+      ]
     },
     {
       "country": "Denmark",
