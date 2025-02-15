@@ -20,15 +20,17 @@ async function initMap() {
         className: 'grayscale-tiles'
     }).addTo(map);
 
-    // Add CSS to make tiles grayscale and very light
-    const style = document.createElement('style');
-    style.textContent = `
-        .grayscale-tiles {
-            filter: grayscale(100%) !important;
-            opacity: 0.3 !important;
-        }
-    `;
-    document.head.appendChild(style);
+    // Only add styles if in browser environment
+    if (typeof document !== 'undefined') {
+        const style = document.createElement('style');
+        style.textContent = `
+            .grayscale-tiles {
+                filter: grayscale(100%) !important;
+                opacity: 0.3 !important;
+            }
+        `;
+        document.head.appendChild(style);
+    }
 
     try {
         // Load all necessary data
@@ -76,8 +78,7 @@ async function initMap() {
             fetch('/public/data/sweden.json'),
             fetch('/public/data/costa_rica.json'),
             fetch('/public/data/guatemala.json'),
-            fetch('/public/data/georgia.json'),
-            fetch('')
+            fetch('/public/data/georgia.json')
         ]);
 
         const visitedData = await visitedResponse.json();
@@ -115,9 +116,6 @@ async function initMap() {
         const costaRicaData = await costaRicaResponse.json();
         const guatemalaData = await guatemalaResponse.json();
         const georgiaData = await georgiaResponse.json();
-        
-        // Update statistics
-        document.getElementById('countries-count').textContent = visitedData.visited.length;
         
         // Create lookup sets
         const visitedCountryCodes = new Set(visitedData.visited.map(c => c.code));
