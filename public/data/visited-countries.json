@@ -96,11 +96,13 @@
     },
     {
       "country": "Guatemala",
-      "code": "GTM"
+      "code": "GTM",
+      "regions": ["Guatemala", "Sacatepéquez", "Sololá", "Petén"]
     },
     {
       "country": "Costa Rica",
-      "code": "CRI"
+      "code": "CRI",
+      "regions": ["San José", "Guanacaste"]
     },
     {
       "country": "Panama",
@@ -123,11 +125,13 @@
     },
     {
       "country": "Brazil",
-      "code": "BRA"
+      "code": "BRA",
+      "regions": ["Rio de Janeiro", "São Paulo"]
     },
     {
       "country": "Bolivia",
-      "code": "BOL"
+      "code": "BOL",
+      "regions": ["Santa Cruz", "Potosí", "Chuquisaca", "La Paz", "Cochabamba"]
     },
     {
       "country": "Paraguay",
@@ -170,7 +174,8 @@
     },
     {
       "country": "France",
-      "code": "FR1"
+      "code": "FRA",
+      "regions": ["Île de France", "Normandy"]
     },
     {
       "country": "Portugal",
@@ -186,7 +191,8 @@
     },
     {
       "country": "Netherlands",
-      "code": "NL1"
+      "code": "NLD",
+      "regions": ["South Holland", "North Holland"]
     },
     {
       "country": "Germany",
@@ -202,7 +208,8 @@
     },
     {
       "country": "Sweden",
-      "code": "SWE"
+      "code": "SWE",
+      "regions": ["Kalmar", "Västra Götaland", "Stockholm"]
     },
     {
       "country": "Norway",
@@ -210,7 +217,8 @@
     },
     {
       "country": "Finland",
-      "code": "FIN"
+      "code": "FIN",
+      "regions": ["Finland Proper", "Uusimaa"]
     },
     {
       "country": "Russia",
@@ -225,7 +233,8 @@
     },
     {
       "country": "Estonia",
-      "code": "EST"
+      "code": "EST",
+      "regions": ["Harju", "Tartu"]
     },
     {
       "country": "Latvia",
@@ -240,7 +249,7 @@
       "code": "POL"
     },
     {
-      "country": "Czechia",
+      "country": "Czech Republic",
       "code": "CZE"
     },
     {
@@ -249,7 +258,8 @@
     },
     {
       "country": "Austria",
-      "code": "AUT"
+      "code": "AUT",
+      "regions": ["Salzburg", "Vienna", "Burgenland"]
     },
     {
       "country": "Hungary",
@@ -261,7 +271,8 @@
     },
     {
       "country": "Croatia",
-      "code": "HRV"
+      "code": "HRV",
+      "regions": ["City of Zagreb", "Dubrovacko-Neretvanska"]
     },
     {
       "country": "Bosnia and Herzegovina",
@@ -273,7 +284,8 @@
     },
     {
       "country": "Bulgaria",
-      "code": "BGR"
+      "code": "BGR",
+      "regions": ["Plovdiv", "Sofia"]
     },
     {
       "country": "North Macedonia",
@@ -301,7 +313,8 @@
     },
     {
       "country": "Georgia",
-      "code": "GEO"
+      "code": "GEO",
+      "regions": ["Tbilisi", "Kakheti", "Mtskheta-Mtianeti"]
     },
     {
       "country": "Armenia",
@@ -321,11 +334,13 @@
     },
     {
       "country": "Jordan",
-      "code": "JOR"
+      "code": "JOR",
+      "regions": ["Ajloun", "Jarash", "Irbid", "Balqa", "Amman", "Aqaba"]
     },
     {
       "country": "Saudi Arabia",
-      "code": "SAU"
+      "code": "SAU",
+      "regions": ["Riyadh", "Makkah"]
     },
     {
       "country": "United Arab Emirates",
@@ -333,7 +348,8 @@
     },
     {
       "country": "Egypt",
-      "code": "EGY"
+      "code": "EGY",
+      "regions": ["Matruh", "Alexandria", "Cairo"]
     },
     {
       "country": "Kazakhstan",
@@ -349,7 +365,8 @@
     },
     {
       "country": "Uzbekistan",
-      "code": "UZB"
+      "code": "UZB",
+      "regions": ["Tashkent", "Samarkand", "Bukhara"]
     },
     {
       "country": "Laos",
@@ -387,11 +404,18 @@
     },
     {
       "country": "Japan",
-      "code": "JPN"
+      "code": "JPN",
+      "regions": ["Hokkaido", "Ishikawa", "Kyoto", "Tokyo"]
     },
     {
       "country": "Italy",
-      "code": "ITA"
+      "code": "ITA",
+      "regions": ["Campania", "Lazio", "Umbria", "Veneto"]
+    },
+    {
+      "country": "Great Britain",
+      "code": "GBR",
+      "regions": ["Oxfordshire", "Cambridgeshire", "West Sussex", "London"]
     }
   ]
 } 

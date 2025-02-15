@@ -35,7 +35,13 @@ async function initMap() {
         const [visitedResponse, worldResponse, disputedResponse, usStatesResponse, 
                turkeyProvincesResponse, thailandProvincesResponse, vietnamProvincesResponse, 
                palestineResponse, russiaResponse, mexicoResponse, panamaResponse,
-               nicaraguaResponse, peruResponse, spainResponse, germanyResponse] = await Promise.all([
+               nicaraguaResponse, peruResponse, spainResponse, germanyResponse, 
+               austriaResponse, boliviaResponse, brazilResponse, bulgariaResponse, 
+               croatiaResponse, egyptResponse, estoniaResponse, 
+               finlandResponse, franceResponse, britainResponse, italyResponse, 
+               japanResponse, jordanResponse, netherlandsResponse, saudiResponse, 
+               uzbekistanResponse, swedenResponse, costaRicaResponse,
+               guatemalaResponse, georgiaResponse] = await Promise.all([
             fetch('/public/data/visited-countries.json'),
             fetch('/public/data/map.geojson'),
             fetch('/public/data/map2.geojson'),
@@ -50,7 +56,28 @@ async function initMap() {
             fetch('/public/data/nicaragua.geojson'),
             fetch('/public/data/peru.geojson'),
             fetch('/public/data/spain.json'),
-            fetch('/public/data/germany.json')
+            fetch('/public/data/germany.json'),
+            fetch('/public/data/austria.json'),
+            fetch('/public/data/bolivia.json'),
+            fetch('/public/data/brazil.json'),
+            fetch('/public/data/bulgaria.json'),
+            fetch('/public/data/croatia.json'),
+            fetch('/public/data/egypt.json'),
+            fetch('/public/data/estonia.json'),
+            fetch('/public/data/finland.json'),
+            fetch('/public/data/france.json'),
+            fetch('/public/data/great_britain.json'),
+            fetch('/public/data/italy.json'),
+            fetch('/public/data/japan.json'),
+            fetch('/public/data/jordan.json'),
+            fetch('/public/data/netherlands.json'),
+            fetch('/public/data/saudi_arabia.json'),
+            fetch('/public/data/uzbekistan.json'),
+            fetch('/public/data/sweden.json'),
+            fetch('/public/data/costa_rica.json'),
+            fetch('/public/data/guatemala.json'),
+            fetch('/public/data/georgia.json'),
+            fetch('')
         ]);
 
         const visitedData = await visitedResponse.json();
@@ -68,6 +95,26 @@ async function initMap() {
         const peruData = await peruResponse.json();
         const spainData = await spainResponse.json();
         const germanyData = await germanyResponse.json();
+        const austriaData = await austriaResponse.json();
+        const boliviaData = await boliviaResponse.json();
+        const brazilData = await brazilResponse.json();
+        const bulgariaData = await bulgariaResponse.json();
+        const croatiaData = await croatiaResponse.json();
+        const egyptData = await egyptResponse.json();
+        const estoniaData = await estoniaResponse.json();
+        const finlandData = await finlandResponse.json();
+        const franceData = await franceResponse.json();
+        const britainData = await britainResponse.json();
+        const italyData = await italyResponse.json();
+        const japanData = await japanResponse.json();
+        const jordanData = await jordanResponse.json();
+        const netherlandsData = await netherlandsResponse.json();
+        const saudiData = await saudiResponse.json();
+        const uzbekistanData = await uzbekistanResponse.json();
+        const swedenData = await swedenResponse.json();
+        const costaRicaData = await costaRicaResponse.json();
+        const guatemalaData = await guatemalaResponse.json();
+        const georgiaData = await georgiaResponse.json();
         
         // Update statistics
         document.getElementById('countries-count').textContent = visitedData.visited.length;
@@ -122,6 +169,67 @@ async function initMap() {
             visitedData.visited
                 .find(country => country.code === 'DEU')
                 ?.regions || []
+        );
+
+        const visitedAustriaProvinces = new Set(
+            visitedData.visited.find(c => c.code === "AUT")?.regions || []
+        );
+        const visitedBoliviaProvinces = new Set(
+            visitedData.visited.find(c => c.code === "BOL")?.regions || []
+        );
+        const visitedBrazilProvinces = new Set(
+            visitedData.visited.find(c => c.code === "BRA")?.regions || []
+        );
+        const visitedBulgariaProvinces = new Set(
+            visitedData.visited.find(c => c.code === "BGR")?.regions || []
+        );
+        const visitedCroatiaProvinces = new Set(
+            visitedData.visited.find(c => c.code === "HRV")?.regions || []
+        );
+        const visitedEgyptProvinces = new Set(
+            visitedData.visited.find(c => c.code === "EGY")?.regions || []
+        );
+        const visitedEstoniaProvinces = new Set(
+            visitedData.visited.find(c => c.code === "EST")?.regions || []
+        );
+        const visitedFinlandProvinces = new Set(
+            visitedData.visited.find(c => c.code === "FIN")?.regions || []
+        );
+        const visitedFranceProvinces = new Set(
+            visitedData.visited.find(c => c.code === "FRA")?.regions || []
+        );
+        const visitedBritainProvinces = new Set(
+            visitedData.visited.find(c => c.code === "GBR")?.regions || []
+        );
+        const visitedItalyProvinces = new Set(
+            visitedData.visited.find(c => c.code === "ITA")?.regions || []
+        );
+        const visitedJapanProvinces = new Set(
+            visitedData.visited.find(c => c.code === "JPN")?.regions || []
+        );
+        const visitedJordanProvinces = new Set(
+            visitedData.visited.find(c => c.code === "JOR")?.regions || []
+        );
+        const visitedNetherlandsProvinces = new Set(
+            visitedData.visited.find(c => c.code === "NLD")?.regions || []
+        );
+        const visitedSaudiProvinces = new Set(
+            visitedData.visited.find(c => c.code === "SAU")?.regions || []
+        );
+        const visitedUzbekistanProvinces = new Set(
+            visitedData.visited.find(c => c.code === "UZB")?.regions || []
+        );
+        const visitedSwedenProvinces = new Set(
+            visitedData.visited.find(c => c.code === "SWE")?.regions || []
+        );
+        const visitedCostaRicaProvinces = new Set(
+            visitedData.visited.find(c => c.code === "CRI")?.regions || []
+        );
+        const visitedGuatemalaProvinces = new Set(
+            visitedData.visited.find(c => c.code === "GTM")?.regions || []
+        );
+        const visitedGeorgiaProvinces = new Set(
+            visitedData.visited.find(c => c.code === "GEO")?.regions || []
         );
 
         // Helper function to get province name from feature
@@ -416,6 +524,366 @@ async function initMap() {
             onEachFeature: function(feature, layer) {
                 const name = feature.properties?.name_1;
                 layer.bindPopup(`${name}, Germany`);
+            }
+        }).addTo(map);
+
+        // Add Austria Provinces layer
+        L.geoJSON(austriaData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedAustriaProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, Austria`);
+            }
+        }).addTo(map);
+
+        // Add Bolivia Provinces layer
+        L.geoJSON(boliviaData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedBoliviaProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, Bolivia`);
+            }
+        }).addTo(map);
+
+        // Add Brazil Provinces layer
+        L.geoJSON(brazilData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedBrazilProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, Brazil`);
+            }
+        }).addTo(map);
+
+        // Add Bulgaria Provinces layer
+        L.geoJSON(bulgariaData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedBulgariaProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, Bulgaria`);
+            }
+        }).addTo(map);
+
+        // Add Croatia Provinces layer
+        L.geoJSON(croatiaData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedCroatiaProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, Croatia`);
+            }
+        }).addTo(map);
+
+        // Add Egypt Provinces layer
+        L.geoJSON(egyptData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedEgyptProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, Egypt`);
+            }
+        }).addTo(map);
+
+        // Add Estonia Provinces layer
+        L.geoJSON(estoniaData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedEstoniaProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, Estonia`);
+            }
+        }).addTo(map);
+
+        // Add Finland Provinces layer
+        L.geoJSON(finlandData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedFinlandProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, Finland`);
+            }
+        }).addTo(map);
+
+        // Add France Provinces layer
+        L.geoJSON(franceData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedFranceProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, France`);
+            }
+        }).addTo(map);
+
+        // Add Great Britain Provinces layer
+        L.geoJSON(britainData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedBritainProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, Great Britain`);
+            }
+        }).addTo(map);
+
+        // Add Italy Provinces layer
+        L.geoJSON(italyData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedItalyProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, Italy`);
+            }
+        }).addTo(map);
+
+        // Add Japan Provinces layer
+        L.geoJSON(japanData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedJapanProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, Japan`);
+            }
+        }).addTo(map);
+
+        // Add Jordan Provinces layer
+        L.geoJSON(jordanData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedJordanProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, Jordan`);
+            }
+        }).addTo(map);
+
+        // Add Netherlands Provinces layer
+        L.geoJSON(netherlandsData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedNetherlandsProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, Netherlands`);
+            }
+        }).addTo(map);
+
+        // Add Saudi Arabia Provinces layer
+        L.geoJSON(saudiData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedSaudiProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, Saudi Arabia`);
+            }
+        }).addTo(map);
+
+        // Add Uzbekistan Provinces layer
+        L.geoJSON(uzbekistanData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedUzbekistanProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, Uzbekistan`);
+            }
+        }).addTo(map);
+
+        // Add Sweden Provinces layer
+        L.geoJSON(swedenData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedSwedenProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, Sweden`);
+            }
+        }).addTo(map);
+
+        // Add Costa Rica Provinces layer
+        L.geoJSON(costaRicaData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedCostaRicaProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, Costa Rica`);
+            }
+        }).addTo(map);
+
+        // Add Guatemala Provinces layer
+        L.geoJSON(guatemalaData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedGuatemalaProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, Guatemala`);
+            }
+        }).addTo(map);
+
+        // Add Georgia Provinces layer
+        L.geoJSON(georgiaData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedGeorgiaProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, Georgia`);
             }
         }).addTo(map);
 
