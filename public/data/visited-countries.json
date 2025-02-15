@@ -209,7 +209,7 @@
     {
       "country": "Sweden",
       "code": "SWE",
-      "regions": ["Kalmar", "Västra Götaland", "Stockholm"]
+      "regions": ["Jönköping", "Västra Götaland", "Stockholm"]
     },
     {
       "country": "Norway",
@@ -415,7 +415,7 @@
     {
       "country": "Great Britain",
       "code": "GBR",
-      "regions": ["Oxfordshire", "Cambridgeshire", "West Sussex", "London"]
+      "regions": ["Oxfordshire", "Cambridgeshire", "West Sussex", "London", "Ealing", "Kensington and Chelsea", "Westminster", "Islington", "Hackney", "Tower Hamlets", "Southwark", "Camden", "Lambeth"]
     }
   ]
 } 
