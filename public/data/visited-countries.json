@@ -27,6 +27,7 @@
         "Tennessee",
         "North Carolina",
         "Virginia",
+        "West Virginia",
         "Maryland",
         "District of Columbia",
         "South Carolina",
@@ -192,7 +193,7 @@
     {
       "country": "Netherlands",
       "code": "NLD",
-      "regions": ["South Holland", "North Holland"]
+      "regions": ["South Holland", "North Holland", "Noord-Brabant"]
     },
     {
       "country": "Germany",
@@ -209,7 +210,7 @@
     {
       "country": "Sweden",
       "code": "SWE",
-      "regions": ["Jönköping", "Västra Götaland", "Stockholm"]
+      "regions": ["Jönköping", "Västra Götaland", "Stockholm", "Småland"]
     },
     {
       "country": "Norway",
