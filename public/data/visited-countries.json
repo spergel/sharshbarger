@@ -258,6 +258,11 @@
       "code": "SVK"
     },
     {
+      "country": "Cyprus",
+      "code": "CYP"
+
+    },
+    {
       "country": "Austria",
       "code": "AUT",
       "regions": ["Salzburg", "Vienna", "Burgenland"]
@@ -310,7 +315,8 @@
     },
     {
       "country": "Greece",
-      "code": "GRC"
+      "code": "GRC",
+      "regions": ["Attikis","Kentrikis Makedonias","Agion Oros"]
     },
     {
       "country": "Georgia",

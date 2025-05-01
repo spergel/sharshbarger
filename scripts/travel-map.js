@@ -43,7 +43,7 @@ async function initMap() {
                finlandResponse, franceResponse, britainResponse, italyResponse, 
                japanResponse, jordanResponse, netherlandsResponse, saudiResponse, 
                uzbekistanResponse, swedenResponse, costaRicaResponse,
-               guatemalaResponse, georgiaResponse] = await Promise.all([
+               guatemalaResponse, georgiaResponse, greeceResponse] = await Promise.all([
             fetch('/public/data/visited-countries.json'),
             fetch('/public/data/map.geojson'),
             fetch('/public/data/map2.geojson'),
@@ -78,7 +78,8 @@ async function initMap() {
             fetch('/public/data/sweden.json'),
             fetch('/public/data/costa_rica.json'),
             fetch('/public/data/guatemala.json'),
-            fetch('/public/data/georgia.json')
+            fetch('/public/data/georgia.json'),
+            fetch('/public/data/greece.geojson')
         ]);
 
         const visitedData = await visitedResponse.json();
@@ -116,6 +117,7 @@ async function initMap() {
         const costaRicaData = await costaRicaResponse.json();
         const guatemalaData = await guatemalaResponse.json();
         const georgiaData = await georgiaResponse.json();
+        const greeceData = await greeceResponse.json();
         
         // Create lookup sets
         const visitedCountryCodes = new Set(visitedData.visited.map(c => c.code));
@@ -229,6 +231,9 @@ async function initMap() {
         const visitedGeorgiaProvinces = new Set(
             visitedData.visited.find(c => c.code === "GEO")?.regions || []
         );
+        const visitedGreeceProvinces = new Set(
+            visitedData.visited.find(c => c.code === "GRC")?.regions || []
+        );
 
         // Helper function to get province name from feature
         function getProvinceName(feature, countryCode) {
@@ -290,7 +295,8 @@ async function initMap() {
                     feature.properties.BRK_A3 === "C02" || 
                     feature.properties.BRK_A3 === "C03" ||
                     feature.properties.SOV_A3 === "IS1" ||
-                    feature.properties.BRK_A3 === "B38" ) {  // Add this condition
+                    feature.properties.BRK_A3 === "B38" ||
+                    feature.properties.BRK_A3 === "B20") {
                     return false;
                 }
                 return true;  // Show all other disputed territories
@@ -882,6 +888,24 @@ async function initMap() {
             onEachFeature: function(feature, layer) {
                 const name = feature.properties?.name;
                 layer.bindPopup(`${name}, Georgia`);
+            }
+        }).addTo(map);
+
+        // Add Greece Provinces layer
+        L.geoJSON(greeceData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.shapeName;
+                const isVisited = visitedGreeceProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.shapeName;
+                layer.bindPopup(`${name}, Greece`);
             }
         }).addTo(map);
 
