@@ -158,7 +158,8 @@
         "ESAN",
         "ESVC",
         "ESMC",
-        "ESCN"
+        "ESCN",
+        "ESGA"
       ]
     },
     {
@@ -180,7 +181,11 @@
     },
     {
       "country": "Portugal",
-      "code": "PRT"
+      "code": "PRT",
+      "regions": [
+        "PT11",
+        "PT13"
+      ]
     },
     {
       "country": "Switzerland",
