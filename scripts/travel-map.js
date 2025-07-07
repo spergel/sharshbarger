@@ -43,7 +43,8 @@ async function initMap() {
                finlandResponse, franceResponse, britainResponse, italyResponse, 
                japanResponse, jordanResponse, netherlandsResponse, saudiResponse, 
                uzbekistanResponse, swedenResponse, costaRicaResponse,
-               guatemalaResponse, georgiaResponse, greeceResponse, portugalResponse] = await Promise.all([
+               guatemalaResponse, georgiaResponse, greeceResponse, portugalResponse,
+               armeniaResponse] = await Promise.all([
             fetch('/public/data/visited-countries.json'),
             fetch('/public/data/map.geojson'),
             fetch('/public/data/map2.geojson'),
@@ -80,7 +81,8 @@ async function initMap() {
             fetch('/public/data/guatemala.json'),
             fetch('/public/data/georgia.json'),
             fetch('/public/data/greece.geojson'),
-            fetch('/public/data/portugal.json')
+            fetch('/public/data/portugal.json'),
+            fetch('/public/data/armenia.json')
         ]);
 
         const visitedData = await visitedResponse.json();
@@ -120,6 +122,7 @@ async function initMap() {
         const georgiaData = await georgiaResponse.json();
         const greeceData = await greeceResponse.json();
         const portugalData = await portugalResponse.json();
+        const armeniaData = await armeniaResponse.json();
         
         // Create lookup sets
         const visitedCountryCodes = new Set(visitedData.visited.map(c => c.code));
@@ -232,6 +235,9 @@ async function initMap() {
         );
         const visitedGeorgiaProvinces = new Set(
             visitedData.visited.find(c => c.code === "GEO")?.regions || []
+        );
+        const visitedArmeniaProvinces = new Set(
+            visitedData.visited.find(c => c.code === "ARM")?.regions || []
         );
         const visitedGreeceProvinces = new Set(
             visitedData.visited.find(c => c.code === "GRC")?.regions || []
@@ -893,6 +899,24 @@ async function initMap() {
             onEachFeature: function(feature, layer) {
                 const name = feature.properties?.name;
                 layer.bindPopup(`${name}, Georgia`);
+            }
+        }).addTo(map);
+
+        // Add Armenia Provinces layer
+        L.geoJSON(armeniaData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedArmeniaProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, Armenia`);
             }
         }).addTo(map);
 

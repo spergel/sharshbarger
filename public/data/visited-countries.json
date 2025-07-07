@@ -326,11 +326,12 @@
     {
       "country": "Georgia",
       "code": "GEO",
-      "regions": ["Tbilisi", "Kakheti", "Mtskheta-Mtianeti"]
+      "regions": ["Tbilisi", "Kakheti", "Mtskheta-Mtianeti", "Adjaria", "Samtskhe-Javakheti"]
     },
     {
       "country": "Armenia",
-      "code": "ARM"
+      "code": "ARM",
+      "regions": ["Lori", "Shirak", "Tavush", "Vayots Dzor", "Yerevan"]
     },
     {
       "country": "Azerbaijan",
@@ -422,7 +423,7 @@
     {
       "country": "Italy",
       "code": "ITA",
-      "regions": ["Campania", "Lazio", "Umbria", "Veneto"]
+      "regions": ["Campania", "Lazio", "Umbria", "Veneto", "Marche"]
     },
     {
       "country": "Great Britain",
