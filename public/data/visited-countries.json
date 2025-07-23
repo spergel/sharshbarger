@@ -40,7 +40,7 @@
     {
       "country": "Turkey",
       "code": "TUR",
-      "regions": ["Antalya", "Ankara", "Amasya", "Istanbul", "Diyarbakir", "Gaziantep"]
+      "regions": ["Antalya", "Izmir","Ankara", "Amasya", "Istanbul", "Diyarbakir", "Gaziantep"]
     },
     {
       "country": "Canada",
@@ -326,7 +326,7 @@
     {
       "country": "Georgia",
       "code": "GEO",
-      "regions": ["Tbilisi", "Kakheti", "Mtskheta-Mtianeti", "Adjaria", "Samtskhe-Javakheti"]
+      "regions": ["Tbilisi", "Shida Kartli","Kakheti", "Mtskheta-Mtianeti", "Adjaria", "Samtskhe-Javakheti"]
     },
     {
       "country": "Armenia",
@@ -343,7 +343,8 @@
     },
     {
       "country": "Lebanon",
-      "code": "LBN"
+      "code": "LBN",
+      "regions": ["Beyrouth", "Mont-Liban", "Liban-Nord"]
     },
     {
       "country": "Jordan",
