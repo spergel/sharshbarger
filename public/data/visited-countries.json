@@ -261,7 +261,18 @@
     },
     {
       "country": "Slovakia",
-      "code": "SVK"
+      "code": "SVK",
+      "regions": ["Bratislavský", "Košický"]
+    },
+    {
+      "country": "Ukraine",
+      "code": "UKR",
+      "regions": ["Zakarpatska", "Lvivska", "Kyivska", "Odeska", "Crimea"]
+    },
+    {
+      "country": "Moldova",
+      "code": "MDA",
+      "regions": ["Chisinau", "Unitate Teritoriala Autonoma Gagauzia", "Pridnestrovie"]
     },
     {
       "country": "Cyprus",

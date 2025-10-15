@@ -44,7 +44,7 @@ async function initMap() {
                japanResponse, jordanResponse, netherlandsResponse, saudiResponse, 
                uzbekistanResponse, swedenResponse, costaRicaResponse,
                guatemalaResponse, georgiaResponse, greeceResponse, portugalResponse,
-               armeniaResponse, lebanonResponse] = await Promise.all([
+               armeniaResponse, lebanonResponse, slovakiaResponse, ukraineResponse, moldovaResponse] = await Promise.all([
             fetch('/public/data/visited-countries.json'),
             fetch('/public/data/map.geojson'),
             fetch('/public/data/map2.geojson'),
@@ -83,7 +83,10 @@ async function initMap() {
             fetch('/public/data/greece.geojson'),
             fetch('/public/data/portugal.json'),
             fetch('/public/data/armenia.json'),
-            fetch('/public/data/lebanon.geojson')
+            fetch('/public/data/lebanon.geojson'),
+            fetch('/public/data/slovakia.json'),
+            fetch('/public/data/ukraine.json'),
+            fetch('/public/data/moldova.json')
         ]);
 
         const visitedData = await visitedResponse.json();
@@ -125,6 +128,9 @@ async function initMap() {
         const portugalData = await portugalResponse.json();
         const armeniaData = await armeniaResponse.json();
         const lebanonData = await lebanonResponse.json();
+        const slovakiaData = await slovakiaResponse.json();
+        const ukraineData = await ukraineResponse.json();
+        const moldovaData = await moldovaResponse.json();
         
         // Create lookup sets
         const visitedCountryCodes = new Set(visitedData.visited.map(c => c.code));
@@ -250,6 +256,15 @@ async function initMap() {
         const visitedPortugalProvinces = new Set(
             visitedData.visited.find(c => c.code === "PRT")?.regions || []
         );
+        const visitedSlovakiaProvinces = new Set(
+            visitedData.visited.find(c => c.code === "SVK")?.regions || []
+        );
+        const visitedUkraineProvinces = new Set(
+            visitedData.visited.find(c => c.code === "UKR")?.regions || []
+        );
+        const visitedMoldovaProvinces = new Set(
+            visitedData.visited.find(c => c.code === "MDA")?.regions || []
+        );
 
         // Helper function to get province name from feature
         function getProvinceName(feature, countryCode) {
@@ -312,7 +327,8 @@ async function initMap() {
                     feature.properties.BRK_A3 === "C03" ||
                     feature.properties.SOV_A3 === "IS1" ||
                     feature.properties.BRK_A3 === "B38" ||
-                    feature.properties.BRK_A3 === "B20") {
+                    feature.properties.BRK_A3 === "B20" ||
+                    feature.properties.BRK_A3 === "C43") {
                     return false;
                 }
                 return true;  // Show all other disputed territories
@@ -976,6 +992,62 @@ async function initMap() {
             onEachFeature: function(feature, layer) {
                 const name = feature.properties?.name;
                 layer.bindPopup(`${name}, Portugal`);
+            }
+        }).addTo(map);
+
+        // Add Slovakia Provinces layer
+        L.geoJSON(slovakiaData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedSlovakiaProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, Slovakia`);
+            }
+        }).addTo(map);
+
+        // Add Ukraine Provinces layer
+        L.geoJSON(ukraineData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedUkraineProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                const displayName = name === 'Crimea, Ukraine' ? 'Crimea' : name;
+                layer.bindPopup(`${displayName}`);
+            }
+        }).addTo(map);
+
+        // Add Moldova Provinces layer
+        L.geoJSON(moldovaData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedMoldovaProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                const displayName = name === 'Transnistria, Moldova' ? 'Pridnestrovie' : name;
+                layer.bindPopup(`${displayName}`);
             }
         }).addTo(map);
 
