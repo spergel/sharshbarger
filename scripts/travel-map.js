@@ -1017,7 +1017,17 @@ async function initMap() {
         L.geoJSON(ukraineData, {
             style: function(feature) {
                 const provinceName = feature.properties?.name;
+                const provinceId = feature.properties?.id;
+                const isCrimea = provinceId === 'UA43' || name === 'Crimea' || name === 'Crimea, Ukraine';
                 const isVisited = visitedUkraineProvinces.has(provinceName);
+                if (isCrimea) {
+                    return {
+                        fillColor: '#90EE90',
+                        fillOpacity: 0.5,
+                        weight: 1,
+                        color: '#2E7D32'
+                    };
+                }
                 return {
                     fillColor: '#4CAF50',
                     fillOpacity: isVisited ? 0.7 : 0,
@@ -1027,7 +1037,9 @@ async function initMap() {
             },
             onEachFeature: function(feature, layer) {
                 const name = feature.properties?.name;
-                const displayName = name === 'Crimea, Ukraine' ? 'Crimea' : name;
+                const provinceId = feature.properties?.id;
+                const isCrimea = provinceId === 'UA43' || name === 'Crimea' || name === 'Crimea, Ukraine';
+                const displayName = isCrimea ? 'Crimea' : name;
                 layer.bindPopup(`${displayName}`);
             }
         }).addTo(map);
