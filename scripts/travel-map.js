@@ -1018,7 +1018,7 @@ async function initMap() {
             style: function(feature) {
                 const provinceName = feature.properties?.name;
                 const provinceId = feature.properties?.id;
-                const isCrimea = provinceId === 'UA43' || name === 'Crimea' || name === 'Crimea, Ukraine';
+                const isCrimea = provinceId === 'UA43' || provinceName === 'Crimea' || provinceName === 'Crimea, Ukraine';
                 const isVisited = visitedUkraineProvinces.has(provinceName);
                 if (isCrimea) {
                     return {
@@ -1039,7 +1039,8 @@ async function initMap() {
                 const name = feature.properties?.name;
                 const provinceId = feature.properties?.id;
                 const isCrimea = provinceId === 'UA43' || name === 'Crimea' || name === 'Crimea, Ukraine';
-                const displayName = isCrimea ? 'Crimea' : name;
+                const baseName = (name || '').replace(/,\s*Ukraine$/i, '');
+                const displayName = isCrimea ? 'Crimea' : `${baseName}, Ukraine`;
                 layer.bindPopup(`${displayName}`);
             }
         }).addTo(map);
