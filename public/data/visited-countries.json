@@ -354,9 +354,19 @@
       "code": "IRQ"
     },
     {
+      "country": "Israel",
+      "code": "ISR",
+      "regions": ["ILHA", "ILJM", "ILTA"]
+    },
+    {
       "country": "Lebanon",
       "code": "LBN",
       "regions": ["Beyrouth", "Mont-Liban", "Liban-Nord"]
+    },
+    {
+      "country": "Palestine",
+      "code": "PSE",
+      "regions": ["PS-BTH", "PS-JEM", "PS-RBH"]
     },
     {
       "country": "Jordan",
@@ -371,6 +381,11 @@
     {
       "country": "United Arab Emirates",
       "code": "ARE"
+    },
+    {
+      "country": "Bahrain",
+      "code": "BHR",
+      "regions": ["Al Manāmah", "Al Muḩarraq"]
     },
     {
       "country": "Egypt",

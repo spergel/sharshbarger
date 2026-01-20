@@ -44,7 +44,7 @@ async function initMap() {
                japanResponse, jordanResponse, netherlandsResponse, saudiResponse, 
                uzbekistanResponse, swedenResponse, costaRicaResponse,
                guatemalaResponse, georgiaResponse, greeceResponse, portugalResponse,
-               armeniaResponse, lebanonResponse, slovakiaResponse, ukraineResponse, moldovaResponse] = await Promise.all([
+               armeniaResponse, lebanonResponse, slovakiaResponse, ukraineResponse, moldovaResponse, israelResponse, bahrainResponse] = await Promise.all([
             fetch('/public/data/visited-countries.json'),
             fetch('/public/data/map.geojson'),
             fetch('/public/data/map2.geojson'),
@@ -52,7 +52,7 @@ async function initMap() {
             fetch('/public/data/turkey.json'),
             fetch('/public/data/thailand.geojson'),
             fetch('/public/data/vietnam.json'),
-            fetch('/public/data/palestine.geo.json'),
+            fetch('/public/data/palestine.json'),
             fetch('/public/data/russia.json'),
             fetch('/public/data/mexico.json'),
             fetch('/public/data/panama.json'),
@@ -86,7 +86,9 @@ async function initMap() {
             fetch('/public/data/lebanon.geojson'),
             fetch('/public/data/slovakia.json'),
             fetch('/public/data/ukraine.json'),
-            fetch('/public/data/moldova.json')
+            fetch('/public/data/moldova.json'),
+            fetch('/public/data/israel.json'),
+            fetch('/public/data/bahrain.json')
         ]);
 
         const visitedData = await visitedResponse.json();
@@ -131,6 +133,8 @@ async function initMap() {
         const slovakiaData = await slovakiaResponse.json();
         const ukraineData = await ukraineResponse.json();
         const moldovaData = await moldovaResponse.json();
+        const israelData = await israelResponse.json();
+        const bahrainData = await bahrainResponse.json();
         
         // Create lookup sets
         const visitedCountryCodes = new Set(visitedData.visited.map(c => c.code));
@@ -265,6 +269,15 @@ async function initMap() {
         const visitedMoldovaProvinces = new Set(
             visitedData.visited.find(c => c.code === "MDA")?.regions || []
         );
+        const visitedIsraelProvinces = new Set(
+            visitedData.visited.find(c => c.code === "ISR")?.regions || []
+        );
+        const visitedPalestineProvinces = new Set(
+            visitedData.visited.find(c => c.code === "PSE")?.regions || []
+        );
+        const visitedBahrainProvinces = new Set(
+            visitedData.visited.find(c => c.code === "BHR")?.regions || []
+        );
 
         // Helper function to get province name from feature
         function getProvinceName(feature, countryCode) {
@@ -326,6 +339,10 @@ async function initMap() {
                     feature.properties.BRK_A3 === "C02" || 
                     feature.properties.BRK_A3 === "C03" ||
                     feature.properties.SOV_A3 === "IS1" ||
+                    feature.properties.SOV_A3 === "PSX" ||
+                    feature.properties.BRK_A3 === "B45" ||
+                    feature.properties.SOVEREIGNT === "Israel" ||
+                    feature.properties.SOVEREIGNT === "Palestine" ||
                     feature.properties.BRK_A3 === "B38" ||
                     feature.properties.BRK_A3 === "B20" ||
                     feature.properties.BRK_A3 === "C43") {
@@ -416,14 +433,126 @@ async function initMap() {
             }
         }).addTo(map);
 
-        // Add Palestine layer
+        // Add Palestine Provinces layer
         L.geoJSON(palestineData, {
-            style: {
-                fillColor: '#ffffff',
-                weight: 1,
-                opacity: 1,
-                color: '#666',
-                fillOpacity: 0.1
+            style: function(feature) {
+                const provinceId = feature.properties?.shapeISO;
+                const isVisited = visitedPalestineProvinces.has(provinceId);
+                const countryVisited = visitedCountryCodes.has("PSE");
+                
+                if (isVisited) {
+                    // Specific region visited - show dark green with visible border
+                    return {
+                        fillColor: '#4CAF50',
+                        fillOpacity: 0.7,
+                        weight: 2,
+                        color: '#2E7D32'
+                    };
+                } else if (countryVisited) {
+                    // Country visited but not this specific region - show light green with subtle border
+                    return {
+                        fillColor: '#90EE90',
+                        fillOpacity: 0.5,
+                        weight: 1,
+                        opacity: 1,
+                        color: '#666'
+                    };
+                } else {
+                    // Not visited - don't show
+                    return {
+                        fillColor: '#ffffff',
+                        fillOpacity: 0,
+                        weight: 0,
+                        opacity: 0,
+                        color: '#ffffff'
+                    };
+                }
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.shapeName;
+                layer.bindPopup(`${name}, Palestine`);
+            }
+        }).addTo(map);
+
+        // Add Israel Provinces layer
+        L.geoJSON(israelData, {
+            style: function(feature) {
+                const provinceId = feature.properties?.id;
+                const isVisited = visitedIsraelProvinces.has(provinceId);
+                const countryVisited = visitedCountryCodes.has("ISR");
+                
+                if (isVisited) {
+                    // Specific region visited - show dark green
+                    return {
+                        fillColor: '#4CAF50',
+                        fillOpacity: 0.7,
+                        weight: 2,
+                        color: '#2E7D32'
+                    };
+                } else if (countryVisited) {
+                    // Country visited but not this specific region - show light green with subtle border
+                    return {
+                        fillColor: '#90EE90',
+                        fillOpacity: 0.5,
+                        weight: 1,
+                        opacity: 1,
+                        color: '#666'
+                    };
+                } else {
+                    // Not visited - don't show
+                    return {
+                        fillColor: '#ffffff',
+                        fillOpacity: 0,
+                        weight: 0,
+                        opacity: 0,
+                        color: '#ffffff'
+                    };
+                }
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, Israel`);
+            }
+        }).addTo(map);
+
+        // Add Bahrain Provinces layer
+        L.geoJSON(bahrainData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedBahrainProvinces.has(provinceName);
+                const countryVisited = visitedCountryCodes.has("BHR");
+                
+                if (isVisited) {
+                    // Specific region visited - show dark green
+                    return {
+                        fillColor: '#4CAF50',
+                        fillOpacity: 0.7,
+                        weight: 2,
+                        color: '#2E7D32'
+                    };
+                } else if (countryVisited) {
+                    // Country visited but not this specific region - show light green with subtle border
+                    return {
+                        fillColor: '#90EE90',
+                        fillOpacity: 0.5,
+                        weight: 1,
+                        opacity: 1,
+                        color: '#666'
+                    };
+                } else {
+                    // Not visited - don't show
+                    return {
+                        fillColor: '#ffffff',
+                        fillOpacity: 0,
+                        weight: 0,
+                        opacity: 0,
+                        color: '#ffffff'
+                    };
+                }
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, Bahrain`);
             }
         }).addTo(map);
 
