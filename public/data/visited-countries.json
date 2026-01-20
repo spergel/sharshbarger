@@ -366,7 +366,7 @@
     {
       "country": "Palestine",
       "code": "PSE",
-      "regions": ["PS-BTH", "PS-JEM", "PS-RBH"]
+      "regions": ["PS-BTH", "PS-JEM", "PS-RBH*"]
     },
     {
       "country": "Jordan",
