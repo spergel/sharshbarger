@@ -411,7 +411,11 @@
     },
     {
       "country": "Laos",
-      "code": "LAO"
+      "code": "LAO",
+      "regions": [
+        "Louangphabang",
+        "Viangchan"
+      ]
     },
     {
       "country": "Vietnam",
@@ -437,7 +441,11 @@
     },
     {
       "country": "Cambodia",
-      "code": "KHM"
+      "code": "KHM",
+      "regions": [
+        "Phnom Penh",
+        "Siem Reap"
+      ]
     },
     {
       "country": "Singapore",
