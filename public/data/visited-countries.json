@@ -160,7 +160,9 @@
         "ESVC",
         "ESMC",
         "ESCN",
-        "ESGA"
+        "ESGA",
+        "ESMD",
+        "ESCM"
       ]
     },
     {
@@ -445,7 +447,6 @@
       "code": "KHM",
       "regions": [
         "Phnom Penh",
-        "Siem Reap",
         "Siemreap"
       ]
     },
@@ -466,7 +467,7 @@
     {
       "country": "Great Britain",
       "code": "GBR",
-      "regions": ["Belfast","Ballycastle","Carrickfergus","Coleraine", "Derry", "Oxfordshire", "Cambridgeshire", "West Sussex", "London", "Ealing", "Kensington and Chelsea", "Westminster", "Islington", "Hackney", "Tower Hamlets", "Southwark", "Camden", "Lambeth"]
+      "regions": ["Belfast","Ballycastle","Carrickfergus","Coleraine", "Derry", "Oxfordshire", "Cambridgeshire", "West Sussex", "London", "Ealing", "Kensington and Chelsea", "Westminster", "Islington", "Hackney", "Tower Hamlets", "Southwark", "Camden", "Lambeth", "Edinburgh", "Glasgow"]
     }
   ]
 } 
