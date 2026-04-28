@@ -44,7 +44,7 @@ async function initMap() {
                japanResponse, jordanResponse, netherlandsResponse, saudiResponse, 
                uzbekistanResponse, swedenResponse, costaRicaResponse,
                guatemalaResponse, georgiaResponse, greeceResponse, portugalResponse,
-               armeniaResponse, lebanonResponse, slovakiaResponse, ukraineResponse, moldovaResponse, israelResponse, bahrainResponse, cambodiaResponse, laosResponse] = await Promise.all([
+               armeniaResponse, lebanonResponse, slovakiaResponse, ukraineResponse, moldovaResponse, israelResponse, bahrainResponse, cambodiaResponse, laosResponse, romaniaResponse] = await Promise.all([
             fetch('/public/data/visited-countries.json'),
             fetch('/public/data/map.geojson'),
             fetch('/public/data/map2.geojson'),
@@ -90,7 +90,8 @@ async function initMap() {
             fetch('/public/data/israel.json'),
             fetch('/public/data/bahrain.json'),
             fetch('/public/data/cambodia.json'),
-            fetch('/public/data/laos.json')
+            fetch('/public/data/laos.json'),
+            fetch('/public/data/romania.json')
         ]);
 
         const visitedData = await visitedResponse.json();
@@ -139,6 +140,7 @@ async function initMap() {
         const bahrainData = await bahrainResponse.json();
         const cambodiaData = await cambodiaResponse.json();
         const laosData = await laosResponse.json();
+        const romaniaData = await romaniaResponse.json();
         
         // Create lookup sets
         const visitedCountryCodes = new Set(visitedData.visited.map(c => c.code));
@@ -287,6 +289,9 @@ async function initMap() {
         );
         const visitedLaosProvinces = new Set(
             visitedData.visited.find(c => c.code === "LAO")?.regions || []
+        );
+        const visitedRomaniaProvinces = new Set(
+            visitedData.visited.find(c => c.code === "ROU")?.regions || []
         );
 
         // Helper function to get province name from feature
@@ -478,6 +483,24 @@ async function initMap() {
             onEachFeature: function(feature, layer) {
                 const name = feature.properties?.name || feature.properties?.NAME_1 || feature.properties?.shapeName;
                 layer.bindPopup(`${name}, Cambodia`);
+            }
+        }).addTo(map);
+
+        // Add Romania Counties layer
+        L.geoJSON(romaniaData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name || feature.properties?.NAME_1 || feature.properties?.shapeName;
+                const isVisited = visitedRomaniaProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name || feature.properties?.NAME_1 || feature.properties?.shapeName;
+                layer.bindPopup(`${name}, Romania`);
             }
         }).addTo(map);
 

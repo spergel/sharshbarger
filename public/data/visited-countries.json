@@ -313,6 +313,19 @@
       "regions": ["Plovdiv", "Sofia"]
     },
     {
+      "country": "Romania",
+      "code": "ROU",
+      "regions": [
+        "Timis",
+        "Hunedoara",
+        "Sibiu",
+        "Cluj",
+        "Brasov",
+        "Bacau",
+        "Iasi"
+      ]
+    },
+    {
       "country": "North Macedonia",
       "code": "MKD"
     },
