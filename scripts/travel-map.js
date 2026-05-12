@@ -44,7 +44,7 @@ async function initMap() {
                japanResponse, jordanResponse, netherlandsResponse, saudiResponse, 
                uzbekistanResponse, swedenResponse, costaRicaResponse,
                guatemalaResponse, georgiaResponse, greeceResponse, portugalResponse,
-               armeniaResponse, lebanonResponse, slovakiaResponse, ukraineResponse, moldovaResponse, israelResponse, bahrainResponse, cambodiaResponse, laosResponse, romaniaResponse] = await Promise.all([
+               armeniaResponse, lebanonResponse, slovakiaResponse, ukraineResponse, moldovaResponse, israelResponse, bahrainResponse, cambodiaResponse, laosResponse, romaniaResponse, hungaryResponse] = await Promise.all([
             fetch('/public/data/visited-countries.json'),
             fetch('/public/data/map.geojson'),
             fetch('/public/data/map2.geojson'),
@@ -91,7 +91,8 @@ async function initMap() {
             fetch('/public/data/bahrain.json'),
             fetch('/public/data/cambodia.json'),
             fetch('/public/data/laos.json'),
-            fetch('/public/data/romania.json')
+            fetch('/public/data/romania.json'),
+            fetch('/public/data/hungary.json')
         ]);
 
         const visitedData = await visitedResponse.json();
@@ -141,6 +142,7 @@ async function initMap() {
         const cambodiaData = await cambodiaResponse.json();
         const laosData = await laosResponse.json();
         const romaniaData = await romaniaResponse.json();
+        const hungaryData = await hungaryResponse.json();
         
         // Create lookup sets
         const visitedCountryCodes = new Set(visitedData.visited.map(c => c.code));
@@ -292,6 +294,9 @@ async function initMap() {
         );
         const visitedRomaniaProvinces = new Set(
             visitedData.visited.find(c => c.code === "ROU")?.regions || []
+        );
+        const visitedHungaryProvinces = new Set(
+            visitedData.visited.find(c => c.code === "HUN")?.regions || []
         );
 
         // Helper function to get province name from feature
@@ -501,6 +506,24 @@ async function initMap() {
             onEachFeature: function(feature, layer) {
                 const name = feature.properties?.name || feature.properties?.NAME_1 || feature.properties?.shapeName;
                 layer.bindPopup(`${name}, Romania`);
+            }
+        }).addTo(map);
+
+        // Add Hungary Counties layer
+        L.geoJSON(hungaryData, {
+            style: function(feature) {
+                const provinceName = feature.properties?.name;
+                const isVisited = visitedHungaryProvinces.has(provinceName);
+                return {
+                    fillColor: '#4CAF50',
+                    fillOpacity: isVisited ? 0.7 : 0,
+                    weight: isVisited ? 2 : 0,
+                    color: '#2E7D32'
+                };
+            },
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties?.name;
+                layer.bindPopup(`${name}, Hungary`);
             }
         }).addTo(map);
 

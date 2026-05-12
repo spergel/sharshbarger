@@ -288,7 +288,8 @@
     },
     {
       "country": "Hungary",
-      "code": "HUN"
+      "code": "HUN",
+      "regions": ["Budapest", "Pest"]
     },
     {
       "country": "Slovenia",
@@ -480,7 +481,7 @@
     {
       "country": "Great Britain",
       "code": "GBR",
-      "regions": ["Belfast","Ballycastle","Carrickfergus","Coleraine", "Derry", "Oxfordshire", "Cambridgeshire", "West Sussex", "London", "Ealing", "Kensington and Chelsea", "Westminster", "Islington", "Hackney", "Tower Hamlets", "Southwark", "Camden", "Lambeth", "Edinburgh", "Glasgow"]
+      "regions": ["Belfast","Ballycastle","Carrickfergus","Coleraine", "Derry", "Oxfordshire", "Cambridgeshire", "West Sussex", "London", "Ealing", "Kensington and Chelsea", "Westminster", "Islington", "Hackney", "Tower Hamlets", "Southwark", "Camden", "Lambeth", "Greenwich", "Edinburgh", "Glasgow"]
     }
   ]
 } 
