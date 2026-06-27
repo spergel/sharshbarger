@@ -255,7 +255,8 @@
     },
     {
       "country": "Poland",
-      "code": "POL"
+      "code": "POL",
+      "regions": ["Masovian", "Lesser Poland"]
     },
     {
       "country": "Czech Republic",
