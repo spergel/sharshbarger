@@ -412,7 +412,8 @@
     },
     {
       "country": "Kazakhstan",
-      "code": "KA1"
+      "code": "KA1",
+      "regions": ["Almaty (city)", "Turkestan"]
     },
     {
       "country": "Tajikistan",
@@ -420,7 +421,8 @@
     },
     {
       "country": "Kyrgyzstan",
-      "code": "KGZ"
+      "code": "KGZ",
+      "regions": ["Bishkek (city)", "Chui", "Issyk-Kul"]
     },
     {
       "country": "Uzbekistan",
