@@ -12,10 +12,9 @@ async function initMap() {
     }).setView([20, 0], 2);
     
     // Update the tile layer options
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
-        attribution: '©OpenStreetMap, ©CartoDB',
-        subdomains: 'abcd',
-        maxZoom: 18,
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles © Esri — Esri, DeLorme, NAVTEQ',
+        maxZoom: 16,
         bounds: [[-90, -180], [90, 180]],
         className: 'grayscale-tiles'
     }).addTo(map);
