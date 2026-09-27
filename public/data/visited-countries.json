@@ -418,7 +418,7 @@
     {
       "country": "Tajikistan",
       "code": "TJK",
-      "regions": ["Sughd", "Districts of Republican Subordination", "Dushanbe"]
+      "regions": ["Sughd Region", "Districts of Republican Subordination", "Dushanbe"]
     },
     {
       "country": "Kyrgyzstan",
@@ -428,7 +428,7 @@
     {
       "country": "Uzbekistan",
       "code": "UZB",
-      "regions": ["Tashkent", "Samarkand", "Bukhara", "Surkhandarya", "Kashkadarya", "Khorezm", "Karakalpakstan"]
+      "regions": ["Tashkent", "Samarkand", "Bukhara", "Surxondaryo", "Qashqadaryo", "Xorezm", "Qoraqalpog'iston"]
     },
     {
       "country": "Laos",

@@ -334,6 +334,25 @@ async function initMap() {
             }
         }
 
+        function isVisitedRegion(visitedSet, name) {
+            if (!name) return false;
+            const aliases = {
+                'Sughd': ['Sughd Region'],
+                'Sughd Region': ['Sughd'],
+                'Surkhandarya': ['Surxondaryo'],
+                'Surxondaryo': ['Surkhandarya'],
+                'Kashkadarya': ['Qashqadaryo'],
+                'Qashqadaryo': ['Kashkadarya'],
+                'Khorezm': ['Xorezm'],
+                'Xorezm': ['Khorezm'],
+                'Karakalpakstan': ["Qoraqalpog'iston", 'Qoraqalpog’iston'],
+                "Qoraqalpog'iston": ['Karakalpakstan', 'Qoraqalpog’iston'],
+                'Qoraqalpog’iston': ['Karakalpakstan', "Qoraqalpog'iston"]
+            };
+            if (visitedSet.has(name)) return true;
+            return (aliases[name] || []).some(alias => visitedSet.has(alias));
+        }
+
         // Add world countries layer first
         L.geoJSON(worldData, {
             style: function(feature) {
@@ -1079,7 +1098,7 @@ async function initMap() {
         L.geoJSON(uzbekistanData, {
             style: function(feature) {
                 const provinceName = feature.properties?.name;
-                const isVisited = visitedUzbekistanProvinces.has(provinceName);
+                const isVisited = isVisitedRegion(visitedUzbekistanProvinces, provinceName);
                 return {
                     fillColor: '#4CAF50',
                     fillOpacity: isVisited ? 0.7 : 0,
@@ -1346,7 +1365,7 @@ async function initMap() {
         L.geoJSON(tajikistanData, {
             style: function(feature) {
                 const provinceName = feature.properties?.name;
-                const isVisited = visitedTajikistanProvinces.has(provinceName);
+                const isVisited = isVisitedRegion(visitedTajikistanProvinces, provinceName);
                 return {
                     fillColor: '#4CAF50',
                     fillOpacity: isVisited ? 0.7 : 0,
